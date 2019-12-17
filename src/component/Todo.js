@@ -9,17 +9,27 @@ export default class Todo extends Component {
     };
   }
   handleEnter = key => {
-    // console.log(key);
     if (key === "Enter") {
       this.props.editTodo(this.props.id, this.state.text);
       this.setState({ editing: !this.state.editing });
     }
   };
+  handleEdit = () => {
+    this.props.editTodo(this.props.id, this.state.text);
+    this.setState({ editing: !this.state.editing });
+  };
   render() {
     return (
       <div className={styles.base}>
         {this.state.editing === false ? (
-          <div className={styles.name}>{this.props.text}</div>
+          <div
+            className={styles.name}
+            onDoubleClick={() => {
+              this.handleEdit();
+            }}
+          >
+            {this.props.text}
+          </div>
         ) : (
           <div>
             <input
@@ -33,7 +43,14 @@ export default class Todo extends Component {
               }}
               style={{ height: "30px" }}
             />
-            <div className={styles.button}>ADD</div>
+            <div
+              className={styles.button}
+              onClick={() => {
+                this.handleEdit();
+              }}
+            >
+              ADD
+            </div>
           </div>
         )}
         {/* <div className={styles.label}>{props.description}</div> */}

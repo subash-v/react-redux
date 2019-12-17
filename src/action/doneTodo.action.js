@@ -1,13 +1,11 @@
 export const ADD_DONE_TODO = "ADD_DONE_TODO";
 export const DELETE_DONE_TODO = "DELETE_DONE_TODO";
 export const EDIT_DONE_TODO = "EDIT_DONE_TODO";
-let nextTodoId = 1;
 
-export function addDoneTodo(text) {
+export function addDoneTodo(data) {
   return {
     type: ADD_DONE_TODO,
-    id: nextTodoId++,
-    text
+    data
   };
 }
 

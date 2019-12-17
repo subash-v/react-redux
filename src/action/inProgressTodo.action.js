@@ -3,11 +3,10 @@ export const DELETE_IN_TODO = "DELETE_IN_TODO";
 export const EDIT_IN_TODO = "EDIT_IN_TODO";
 let nextTodoId = 1;
 
-export function addInProgressTodo(text) {
+export function addInProgressTodo(data) {
   return {
     type: ADD_IN_TODO,
-    id: nextTodoId++,
-    text
+    data
   };
 }
 

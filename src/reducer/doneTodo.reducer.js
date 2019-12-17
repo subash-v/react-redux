@@ -10,7 +10,7 @@ function donetodo(state = [], action) {
       let existingState = state;
       let newState = [];
       newState.push(...existingState);
-      newState.push({ id: action.id, text: action.text });
+      newState.push(action.data);
       return newState;
 
     case DELETE_DONE_TODO:
